@@ -1,0 +1,115 @@
+To Do:
+
+FUNCTION TRACKER:
+                -capitalize
+                -checkClue
+                -cleanUpUserResponse
+                -freshBoard
+                -intro
+                -main
+                    -intro
+                        -cleanUpUserResponse
+                            -capitalize
+                        -freshBoard
+                        -multiPlayer
+                            -cleanUpUserResponse
+                            -reset
+                            -startGame
+                        -nameList
+                        -printGameBoard
+                        -reset
+                        -scoreList
+                        -startGame
+                            -checkClue
+                            -onlyNew
+                            -cleanUpUserResponse
+                            -programResponse
+                                -cleanUpUserResponse
+                                -rightAnswer
+                                -randomNum
+                        -updateBoard
+                    -playAgain
+                    -printGameBoard
+                -multiPlayer
+                -nameList
+                -newGame
+                -onlyNew
+                -playAgain
+                -printGameBoard
+                -programResponse
+                -randomNum
+                -reset
+                -rightAnswer
+                -scoreList
+                -startGame
+                -updateBoard
+
+**************************************************************
+
+TODO:   -MOST RECENT: TEST 4 PLAYER SCENARIO WITH SOMEONE GETTING ALL RIGHT ANSWERS
+
+TODO:   -Move forward with more tests as listed below
+            -In addition to the below test cases here are some scenarios to test:
+                -Both one player and multiplayer (1-4)
+                    -Correct and incorrect responses
+                    -Score and name
+
+TODO:   -puml/UML
+            -Represent relationships
+            -Scan over and make sure format is correct and nothing is missing
+            -Generate UML, place inside repo and upload directly to github along with repo
+            -STATIC???
+
+TODO:   -Clean up entire code
+
+TODO:   -
+
+
+                            -Secondary
+                                        TODO:   -Save the game state (even when the program exits) to prevent the same clues
+                                        TODO:    from being used in a new game
+                                        TODO:      -Take second look at this function
+                                        -(IF you wanna mess with categories..
+                                            ~ https://jservice.kenzie.academy/api/clues/?categorytitle=sami ~ )
+
+                                        -(Time limits for answering?)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+todo:       |||   *********   |||
+            VVV   | TESTS |   VVV
+
+Here are some test cases to include in your testing (test manually by hand) -
+
+User enters right answer, all lowercase
+User enters right answer, all uppercase
+User enters right answer, exact match
+User enters wrong answer
+User enters blank spaces todo: look again at this and how the program responsds. does it continue?
+User hits enter without typing anything todo: <-- this too?
+Add any additional test cases to make sure your code is working properly.
+
+FYI: The instructional team will be grading each project by hand.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//        // QUESTION
+//        System.out.println("\n So you like games huh? \n I got you :) \n What do they call you?");
+//
+//        // RESPONSE
+//        playerName = scanner.nextLine();
+//
+//        // CLEAN RESPONSE
+//        playerName = cleanUpUserResponse(playerName);
+//
+//        // MAKE PLAYER
+//        Player player = new Player(playerName);
+//
+//        // NAME PLAYER
+//        player.setName(playerName);
+//
+//        // ADD PLAYER TO LIST
+//        playerList.add(player);
+//
+//        System.out.println("\n So " + player.getName() + ", is it just you playing?");
+//        userResponse = scanner.nextLine().toLowerCase();
+//        cleanUpUserResponse(userResponse);
+        // todo: ... and then 'if-valid answer/else-if-start/else-multi start', players++, for and while then 'startGame'

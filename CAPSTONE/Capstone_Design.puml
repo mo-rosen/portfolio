@@ -1,0 +1,135 @@
+@startuml
+
+title Capstone - Get a Clue
+
+class Application {
+    + clueList:ArrayList<ClueDTO>
+    + playerList:ArrayList<Player>
+    + positiveMessages:ArrayList<String>
+    + gamePlayedMarker:boolean
+    + staticClueDTO:ClueDTO
+    + players:int
+    + randomPositive:int
+    + score:int
+    + scanner:Scanner
+    + correctAnswer:String
+    + newURL:String
+    + playerName:String
+    + playerName2:String
+    + playerName3:String
+    + playerName4:String
+    + userResponse:String
+    + names:String[]
+    + scores:String[]
+    + board:String[][]
+
+    + capitalize(str:String):String
+        ch:char
+        newStr:String
+    + checkClue(clueDTO:ClueDTO):boolean
+    + cleanUpUserResponse(str:String):String
+    + goodbye()
+    + intro()
+        player:Player
+    + multiplayer()
+        numPlayersResponse:String
+        player:Player
+        player:Player
+        player:Player
+        player:Player
+        player:Player
+        player:Player
+    + nameList(list:ArrayList<Player>):String[]
+        sb:StringBuilder
+        str:String
+    + newGame(playerList:ArrayList<Player>, clueList:ArrayList<ClueDTO>)
+    + onlyNew(clueDTO:ClueDTO):ClueDTO)
+    + playAgain()
+        exitKey:String
+        newPlayers:String
+    + programResponse(player:Player)
+    + randomNum():int
+    + reset(playerList:ArrayList<Player>)
+    + rightAnswer(answer:String):boolean
+    + scoreList(list:ArrayList<Player>):String[]
+        sb:StringBuilder
+        str:String
+    + startGame(who:ArrayList<Player>)
+    + main(args:String[])
+        emptyClue:ClueDTO
+}
+
+class ClueDTO {
+    - canon:boolean
+    - game:Game
+    - category:Category
+    - invalidcount:int
+    - gameid:int
+    - categoryid:int
+    - value:int
+    - question:String
+    - answer:String
+    - id:int
+
+    class Game {
+        - canon:boolean
+        - aired:String
+        - href:String
+    }
+    class Category {
+        - canon:boolean
+        - title:String
+        - href:String
+        - id:int
+    }
+}
+
+ClueDTO o-- Application
+Game .. ClueDTO
+Category .. ClueDTO
+
+class ClueGame {
+    + players: int
+    + gameBoard: String[][]
+
+    + freshBoard(names: String[]): String[][]
+        counter: int
+    + updateBoard(board: String[][], scores: String[]): String[][]
+        counter: int
+    + printGameBoard(board: String[][])
+}
+
+ClueGame *-- Application
+
+class CustomHttpClient {
+    +returnStatement:String
+    +client:HttpClient
+
+    + sendGET(URLString:String):String
+        uri:URI
+        request:HttpRequest
+        httpResponse:HttpResponse<String>
+        statusCode:int
+
+    + deserialize(json:String):ClueDTO
+        objectMapper:ObjectMapper
+        typeRefClueDTO:TypeReference<ClueDTO>
+}
+
+CustomHttpClient *-- Application
+
+class Player {
+    - name:String
+    - score:int
+    - cluesGiven:int
+
+    + Player(name:String, score:String)
+    + Player()
+
+    + toString():String
+}
+
+Player o-- Application
+
+@enduml
+

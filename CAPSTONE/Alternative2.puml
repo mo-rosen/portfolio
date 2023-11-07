@@ -1,0 +1,125 @@
+@startuml
+
+title Capstone - Get a Clue
+
+class Application {
+    + ArrayList<ClueDTO> clueList
+    + ArrayList<Player> playerList
+    + ArrayList<String> positiveMessages
+    + boolean gamePlayedMarker
+    + ClueDTO staticClueDTO
+    + int players
+    + int randomPositive
+    + int score
+    + Scanner scanner
+    + String correctAnswer
+    + String newURL
+    + String playerName
+    + String playerName2
+    + String playerName3
+    + String playerName4
+    + String userResponse
+    + String[] names
+    + String[] scores
+    + String[][] board
+
+    + String capitalize(String)
+        char ch
+        String newStr
+    + boolean checkClue(ClueDTO)
+    + String cleanUpUserResponse(String)
+    + void goodbye()
+    + void intro()
+        Player player
+    + void multiplayer()
+        String numPlayersResponse
+        Player player
+        Player player
+        Player player
+        Player player
+        Player player
+        Player player
+    + String[] nameList(ArrayList<Player>)
+        StringBuilder sb
+        String str
+    + void newGame(ArrayList<Player>, ArrayList<ClueDTO>)
+    + ClueDTO onlyNew(ClueDTO)
+    + void playAgain()
+        String exitKey
+        String newPlayers
+    + void programResponse(Player)
+    + int randomNum()
+    + void reset(ArrayList<Player>)
+    + boolean rightAnswer(String)
+    + String[] scoreList(ArrayList<Player>)
+        StringBuilder sb
+        String str
+    + void startGame(ArrayList<Player>)
+    + void main(String[])
+        ClueDTO emptyClue
+}
+
+class ClueDTO {
+    - boolean canon
+    - Game game
+    - Category category
+    - int invalidcount
+    - int gameid
+    - int categoryid
+    - int value
+    - String question
+    - String answer
+    - int id
+
+    class Game {
+        - boolean canon
+        - String aired
+        - String href
+    }
+    class Category {
+        - boolean canon
+        - String title
+        - String href
+        - int id
+    }
+}
+
+class ClueGame {
+    + int players
+    + String[][] gameBoard
+
+    + String[][] freshBoard(String[])
+        int counter
+    + String[][] updateBoard(String[][], String[])
+        int counter
+    + void printGameBoard(String[][])
+}
+
+class CustomHttpClient {
+    + String returnStatement
+    + HttpClient client
+
+    + String sendGET(URLString)
+        URI uri
+        HttpRequest request
+        HttpResponse<String> httpResponse
+        int statusCode
+
+    + ClueDTO deserialize(String)
+        ObjectMapper objectMapper
+        TypeReference<ClueDTO> typeRefClueDTO
+}
+
+class Player {
+    - String name
+    - int score
+    - int cluesGiven
+
+    + Player(String, String)
+    + Player()
+
+    + String toString()
+}
+
+@enduml
+
